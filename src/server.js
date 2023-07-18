@@ -2,9 +2,11 @@ const express = require('express');
 const PORT = 3010;
 
 const app = express();
-app.get('/:id', (req, res) => {
-  const { id } = req.params
-  res.send(`Id da rota: ${id}`);
+app.use(express.json())
+
+app.post('/users', (req, res) => {
+  const { name, email, password } = req.body;
+  res.json({name, email, password});
 });
 
 app.listen(PORT, () =>
