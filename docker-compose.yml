@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  node:
+    image: node:16.14
+    container_name: mynotes
+    tty: true
+    stdin_open: true
+    command: bash
+    restart: always
+    working_dir: /home/node/app
+    volumes:
+      - ./:/home/node/app
+    ports:
+      # Expõe a porta padrão da aplicação: altere aqui caso use outra porta
+      - 3010:3010
